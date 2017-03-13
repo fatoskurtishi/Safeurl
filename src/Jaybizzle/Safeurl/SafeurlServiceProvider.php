@@ -34,9 +34,9 @@ class SafeurlServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        $this->app['safeurl'] = $this->app->share(function ($app) {
-            return new Safeurl();
-        });
+        $this->app->singleton('safeurl', function ($app) {
+             return new Safeurl();
+         });
     }
 
     /**
